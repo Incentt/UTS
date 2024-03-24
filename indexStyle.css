@@ -1,0 +1,45 @@
+@media (max-width: 600px){
+    #mainPage{
+
+        margin: 20px 20px 0;
+    }
+    h6{
+        word-wrap: break-word;
+        font-size: 0.75rem;
+    }
+    b{
+        font-size: 0.85rem;
+
+    }
+    .btn {
+
+        font-size: 10px;
+        padding: 2px;
+    }
+    
+    
+}
+@media (min-width: 600px){
+    #mainPage{
+
+        margin: 50px 10% 0;
+    }
+    h6{
+        word-wrap: break-word;
+    }
+    
+}
+body{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    
+    }
+
+
+hr.thick {
+    border-top: 2px solid #000; 
+    margin: 0;
+  }
+
+  

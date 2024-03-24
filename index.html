@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelompok 01 UTS</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="indexStyle.css" />
+    <script src="https://kit.fontawesome.com/9a5f67c317.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body >
+
+    <div id="mainPage">
+        <div id="header" style="margin-bottom: 30px;">
+            <h2>
+                Data Mahasiswa
+            </h2>
+            <button type="button"class="btn btn-sm btn-primary" onclick="addData(); this.blur()">Tambahkan Data</button>
+        </div>
+
+        <div class="container-fluid-text-left" style="margin: 0;">
+            <hr class="thick">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-md-2 col-2">
+                    <b>NIM</b>
+                </div>
+                <div class="col-md-3 col-3">
+                    <b>Nama</b>
+                </div>
+                <div class="col-md-4 col-3">
+                    <b>Alamat</b>
+                </div>
+                <div class="col-md-3 col-3">
+                    <b>Pengaturan</b>
+                </div>
+            </div>
+            
+            <div class="row" id="row-1" style="margin-bottom: 10px;">
+                <div class="col-md-2 col-2">
+                    <h6>1004654</h6>
+                </div>
+                <div class="col-md-3 col-3">
+                    <h6>Vincent Wisnata</h6>
+                </div>
+                <div class="col-md-4 col-3">
+                    <h6>Jl Multimedia Nusantara</h6>
+                </div>
+                <div class="col-md-3 col-3">
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-sm btn-primary flex-fill mr-2" onclick="ubahData(this)">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Ubah
+                        </button>
+                        <button type="button" onclick="hapusData(this)" class="btn btn-sm btn-danger flex-fill">
+                            <i class="fa-solid fa-eraser"></i>
+                            Hapus
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" id="row-2" style="margin-bottom: 10px;">
+                <div class="col-md-2 col-2">
+                    <h6>100</h6>
+                </div>
+                <div class="col-md-3 col-3">
+                    <h6>Irsal Gianjar</h6>
+                </div>
+                <div class="col-md-4 col-3">
+                    <h6>Jl Multimedia Nusantara</h6>
+                </div>
+                <div class="col-md-3 col-3">
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-sm btn-primary flex-fill mr-2" onclick="ubahData(this)">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Ubah
+                        </button>
+                        <button type="button" onclick="hapusData(this)" class="btn btn-sm btn-danger flex-fill">
+                            <i class="fa-solid fa-eraser"></i>
+                            Hapus
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" id="row-3" style="margin-bottom: 10px;">
+                <div class="col-md-2 col-2">
+                    <h6>100</h6>
+                </div>
+                <div class="col-md-3 col-3">
+                    <h6>Aqil</h6>
+                </div>
+                <div class="col-md-4 col-3">
+                    <h6>Jl Multimedia Nusantara</h6>
+                </div>
+                <div class="col-md-3 col-3">
+                    <div class="d-flex justify-content-between">
+                        <button type="button" class="btn btn-sm btn-primary flex-fill mr-2" onclick="ubahData(this)">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Ubah
+                        </button>
+                        <button type="button" onclick="hapusData(this)" class="btn btn-sm btn-danger flex-fill">
+                            <i class="fa-solid fa-eraser"></i>
+                            Hapus
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        
+
+        </div>
+        <br>
+        <div class="mt-2" style="display: flex; justify-content: right;">
+            <button type="button" id="prevButton" ; class="btn btn-sm btn-primary mr-2"
+                onclick="showPrevious(this); this.blur()">Previous</button>
+            <button type="button" id="nextButton" ; class="btn btn-sm btn-primary"
+                onclick="showNext(this); this.blur()">Next</button>
+        </div>
+        <br>
+        <hr class="thick">
+
+    </div>
+    </div>
+
+
+    <div class="modal fade" id="gantiDataModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="form-group">
+                            <label for="NIM">NIM</label>
+                            <input type="text" class="form-control" id="NIM" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap:</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat:</label>
+                            <input type="text" class="form-control" id="alamat">
+                        </div>
+
+                        <button type="button" onclick="saveChanges()" class="btn  btn-primary">Save Data</button>
+                    </form>
+                    <!-- Display an alert when data is successfully edited -->
+                    <div class="alert alert-success mt-3" style="display: none;">
+                        Data successfully edited!
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class="modal fade" id="tambahkanData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambahkan Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="form-group">
+                            <label for="NIM">NIM</label>
+                            <input type="text" class="form-control" id="NIMAdd">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap:</label>
+                            <input type="text" class="form-control" id="nameAdd">
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat:</label>
+                            <input type="text" class="form-control" id="alamatAdd">
+                        </div>
+
+                        <button type="button" onclick="addMahasiswa()" class="btn btn-primary">Tambahkan Data</button>
+                    </form>
+                    <!-- Display an alert when data is successfully edited -->
+                    <div class="alert alert-success mt-3" style="display: none;">
+                        Data successfully edited!
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Include Bootstrap JS and SweetAlert2 JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+</body>
+
+<script src="main.js"></script>
+
+</html>
